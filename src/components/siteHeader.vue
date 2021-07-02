@@ -31,74 +31,11 @@
 
             <li><v-btn depressed> Новости</v-btn></li>
             <li><v-btn depressed> Коллекции</v-btn></li>
-            <v-dialog
-              v-model="dialog"
-              persistent
-              max-width="600px"
-            >
-            <template v-slot:activator="{ on, attrs }">
             <li><v-btn
             depressed
             class="auth"
-            v-bind="attrs"
-            v-on="on"> Войти <v-icon dense color="#2d5aab" class="button-icons">mdi-account-circle</v-icon></v-btn> </li>
-            </template>
-
-              <v-card>
-        <v-card-title>
-          <span class="text-h5">Авторизация</span>
-        </v-card-title>
-        <v-card-text>
-          <v-container>
-            <v-row>
-
-              <v-col cols="12">
-                <v-text-field
-                  label="Email*"
-                  required
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12">
-                <v-text-field
-                  label="Пароль*"
-                  type="password"
-                  required
-                ></v-text-field>
-              </v-col>
-
-            </v-row>
-          </v-container>
-          <small><a>    Восстановить пароль </a> </small>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn
-            color="#919191"
-            depressed
-            text
-            @click="dialog = false"
-          >
-            оТМЕНА
-          </v-btn>
-           <v-btn
-            color="#919191"
-            depressed
-            text
-            @click="dialog = false"
-          >
-            ЗАРЕГИСТРИРОВАТЬСЯ
-          </v-btn>
-          <v-btn
-            color="blue darken-1"
-            depressed
-            text
-            @click="dialog = false"
-          >
-            Войти
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+            @click.stop="showAuth = true"> Войти <v-icon dense color="#2d5aab" class="button-icons">mdi-account-circle</v-icon></v-btn> </li>
+            <authform :visible="showAuth" @close="showAuth=false"/>
 
         </nav>
 
@@ -108,12 +45,18 @@
 </template>
 
 <script>
+import authform from "./authform.vue"
 
 export default {
-  name: 'siteHeader',
-   data: () => ({
-      dialog: false,
-    }),
+  name: "siteHeader",
+  data () {
+    return {
+      showAuth: false
+    }
+  },
+  components: {
+    authform
+  }
 }
 </script>
 
