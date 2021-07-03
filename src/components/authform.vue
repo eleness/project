@@ -14,12 +14,15 @@
               <v-col cols="12">
                 <v-text-field
                   label="Email*"
+                  v-model="email"
+                  :rules="emailRules"
                   required
                 ></v-text-field>
               </v-col>
               <v-col cols="12">
                 <v-text-field
                   label="Пароль*"
+                  :rules="passwordRules"
                   type="password"
                   required
                 ></v-text-field>
@@ -49,9 +52,10 @@
           </v-btn>
           <v-btn
             color="blue darken-1"
+            :disabled="false"
             depressed
             text
-            @click="dialog = false"
+            @click="auth()"
           >
             Войти
           </v-btn>
@@ -75,7 +79,22 @@ export default {
         }
       }
     }
-  }
+  },
+  data: () => ({
+    emailRules: [
+          v => !!v || 'Введите email адресс',
+          v => /.+@.+/.test(v) || 'Введите настоящий email адресс',
+      ],
+    passwordRules: [
+          v => !!v || 'Введите пароль',
+          v => v.length >= 5 || "Введите настоящий пароль",
+    ],
+  }),
+  methods: {
+    auth() {
+      console.log();
+    }
+  },
 }
 </script>
 

@@ -1,19 +1,18 @@
 <template>
-   <v-app>
-
+<v-app class="header-wrapp">
     <div class="header">
         <a href="/"><img src="https://i.ibb.co/MnQ2x6q/10.png" class="logoImg"></a>
         <nav>
-            <li><v-btn depressed> Главная</v-btn></li>
+            <li><router-link class="router-link" to="/"><v-btn depressed> Главная</v-btn></router-link></li>
             <v-menu offset-y transition="slide-y-transition" origin="center center" open-on-hover rounded="b-xl">
               <template v-slot:activator="{on, attrs}">
-                <li>
+                <li><router-link class="router-link" to="/rating">
                   <v-btn
                     depressed
                     class="rating"
                     v-bind="attrs"
                     v-on="on"
-                    >      Рейтинг <v-icon dense color="#ffa500" class="button-icons">mdi-star</v-icon></v-btn> </li>
+                    >      Рейтинг <v-icon dense color="#ffa500" class="button-icons">mdi-star</v-icon></v-btn> </router-link> </li>
               </template>
 
         <v-list class="rating-nav-menu" dense nav>
@@ -40,8 +39,8 @@
         </nav>
 
     </div>
-
 </v-app>
+
 </template>
 
 <script>
@@ -62,10 +61,13 @@ export default {
 
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
-@media (min-device-width: 600px) {
+@media (min-width: 1300px) and (max-width: 1600px){
+  .header-wrapp {
+    height: 10rem;
+
+  }
   .header {
-      padding: 1rem 29rem;
+      padding: 1rem 10rem;
       text-align: justify;
       display: inline-block;
       float: none;
@@ -73,12 +75,26 @@ export default {
       flex-direction: row; /* Держим элементы в строке */
       justify-content: space-between; /* Распределяем элементы внутри шапки */
       flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+
   }
+    .header .logoImg{
+      max-width: 300px;
+      transition: 350ms;
+      transition-timing-function: cubic-bezier(0.68, -0.24, 0.05, 1.65);
+  }
+    .header nav li {
+      padding: 0 0 10px 10px;
+  }
+
+}
+
+
   .header nav li{
         font-family: 'Rubik', sans-serif;
         padding: 0.5rem 10px 0 0px;
         display: inline-block;
   }
+
   .header nav li .auth{
     margin: 0 0 0 15px;
     color: #2d5aab;
@@ -90,15 +106,10 @@ export default {
     left: 4px;
   }
 
-  .header .logoImg{
-      max-width: 300px;
-      transition: 350ms;
-      transition-timing-function: cubic-bezier(0.68, -0.24, 0.05, 1.65);
-  }
   .logoImg:hover {
       transform: scale(1.04, 1.04);
   }
-}
+
 
 .rating-nav-menu a{
   font-family: 'Rubik', sans-serif;
@@ -116,6 +127,84 @@ export default {
   color: #2a8027
 }
 
+@media (max-width: 1300px) {
+  .header-wrapp {
+    height: 7rem;
 
+  }
+  .header {
+      padding: 1rem 1rem;
+      text-align: justify;
+      display: inline-block;
+      float: none;
+      display: flex; /* Включаем режим Flexbox. */
+      flex-direction: row; /* Держим элементы в строке */
+      justify-content: space-between; /* Распределяем элементы внутри шапки */
+      flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+  }
+  .header nav li{
+        font-family: 'Rubik', sans-serif;
+        padding: 0.5rem 10px 0 0px;
+        display: inline-block;
+  }
+  .header nav li .v-btn {
+    font-size: 1.5vw;
+  }
+  .header .logoImg {
+      max-width: 300px;
+      transition: 350ms;
+      transition-timing-function: cubic-bezier(0.68, -0.24, 0.05, 1.65);
+  }
+}
 
+@media (min-width: 1600px) and (max-width: 1800px){
+  .header-wrapp {
+    height: 10rem;
+
+  }
+  .header {
+      padding: 1rem 20rem;
+      text-align: justify;
+      display: inline-block;
+      float: none;
+      display: flex; /* Включаем режим Flexbox. */
+      flex-direction: row; /* Держим элементы в строке */
+      justify-content: space-between; /* Распределяем элементы внутри шапки */
+      flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+
+  }
+    .header .logoImg{
+      max-width: 300px;
+      transition: 350ms;
+      transition-timing-function: cubic-bezier(0.68, -0.24, 0.05, 1.65);
+  }
+
+}
+
+@media (min-width: 1800px){
+  .header-wrapp {
+    height: 10rem;
+
+  }
+  .header {
+      padding: 1rem 27rem;
+      text-align: justify;
+      display: inline-block;
+      float: none;
+      display: flex; /* Включаем режим Flexbox. */
+      flex-direction: row; /* Держим элементы в строке */
+      justify-content: space-between; /* Распределяем элементы внутри шапки */
+      flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+
+  }
+    .header .logoImg{
+      max-width: 300px;
+      transition: 350ms;
+      transition-timing-function: cubic-bezier(0.68, -0.24, 0.05, 1.65);
+  }
+
+}
+.router-link {
+  text-decoration: none;
+}
 </style>
