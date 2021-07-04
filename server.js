@@ -9,7 +9,7 @@
   app.get('/api/test', (req, res) => {
     res.send('Тест');
   });
-  router.get('/', (req, res, next) => {
+  router.get('/rating', (req, res, next) => {
     res.renderVue('src/App.vue');
 })
 
