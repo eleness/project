@@ -6,8 +6,8 @@ import rating from "./views/rating/index"
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/', component: home },
-  { path: '/rating', component: rating }
+  { path: '/', component: rating },
+  { path: '/rating', component: home }
 ]
 
 let router = new VueRouter({
