@@ -5,7 +5,7 @@
   // создаем приложение
   const app = express ();
   // Маршрутизируем GET-запрос http://ваш_сайт/test
-  app.get('/test', (req, res) => {
+  app.get('./test', (req, res) => {
     res.send('Тест');
   });
   // Слушаем порт и при запуске сервера сообщаем
