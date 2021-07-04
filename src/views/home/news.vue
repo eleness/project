@@ -45,9 +45,7 @@ created() {
 methods: {
   async getAnimeNews() {
     this.newsData = [
-      {
-      title : "asd",
-      }
+      this.$storage.get('news')
     ]
   }
 }

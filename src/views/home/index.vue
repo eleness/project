@@ -5,7 +5,7 @@
 
 import news from './news.vue'
 export default {
-  name: "mainPage",
+  name: "home",
     components: {
       news
     }

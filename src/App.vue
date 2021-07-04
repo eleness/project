@@ -9,6 +9,7 @@
 
 <script>
 import siteHeader from './components/siteHeader.vue'
+
 export default {
   name: 'App',
   components: {
@@ -23,7 +24,7 @@ body {
   font-family: 'Rubik', sans-serif;
 }
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .15s ease-in-out;
+  transition: opacity .10s ease;
 }
 .fade-enter, .fade-leave-active {
   opacity: 0;
