@@ -7,8 +7,8 @@
   const app = express ();
 
   app.get('/api/news', (req, res) => {
-    let data = require("./controller")
-    res.send(data());
+    let newsData = require('./controller')
+    res.send(newsData());
 });
 
   app.get('/*', (req, res) => res.sendFile('./dist/index.html', { root: __dirname }));
