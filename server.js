@@ -10,7 +10,6 @@
     import getAnimeNews from "./_database/controller.js"
     res.send(getAnimeNews());
 });
-  });
 
   app.get('/*', (req, res) => res.sendFile('./dist/index.html', { root: __dirname }));
 
