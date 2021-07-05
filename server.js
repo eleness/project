@@ -7,7 +7,12 @@
   const app = express ();
 
   app.get('/api', (req, res) => {
-
+    var getAnimeNews = require('./controller');
+    getAnimeNews.then(
+      results => {
+        res.send(results);
+      }
+      );
 
 });
 
