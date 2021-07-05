@@ -8,15 +8,7 @@
   const app = express ();
 
 
-  router.get('/api', (req, res) => {
-    var getAnimeNews = require('./controller');
-    getAnimeNews.then(
-      results => {
-        res.send(results);
-      }
-      );
 
-});
 
 app.get('/*', (req, res) => res.sendFile('./dist/index.html', { root: __dirname }));
 
