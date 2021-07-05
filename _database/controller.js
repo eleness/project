@@ -15,9 +15,8 @@ export default function getAnimeNews(count) {
         }
 
         collection.find().toArray(function(err, results){
-
-            return(results);
             client.close();
+            return(results);
         });
     });
 }
