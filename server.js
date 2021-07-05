@@ -1,15 +1,14 @@
   // Настройки
   const setup = {port:8000}
   // Подключаем express
-  import {getAnimeNews} from "./_database/controller.js";
   const express = require ('express');
   var expressVue = require("express-vue");
   // создаем приложение
   const app = express ();
 
   app.get('/api/news', (req, res) => {
-    let data = getAnimeNews();
-    res.send(data);
+    let data = require("./controller")
+    res.send(data());
 });
 
   app.get('/*', (req, res) => res.sendFile('./dist/index.html', { root: __dirname }));
