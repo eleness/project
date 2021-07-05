@@ -6,6 +6,7 @@
   // создаем приложение
   const app = express ();
 
+  app.get('/*', (req, res) => res.sendFile('./dist/index.html', { root: __dirname }));
   app.get('/api', (req, res) => {
     var getAnimeNews = require('./controller');
     getAnimeNews.then(
@@ -16,7 +17,7 @@
 
 });
 
-  app.get('/*', (req, res) => res.sendFile('./dist/index.html', { root: __dirname }));
+
 
   app.listen(setup.port, () => {
     console.log('Сервер: порт %s - старт!', setup.port);
