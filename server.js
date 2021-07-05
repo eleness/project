@@ -7,7 +7,7 @@
   const app = express ();
 
   app.get('/*', (req, res) => res.sendFile('./dist/index.html', { root: __dirname }));
-  app.get('/api', (req, res) => {
+  app.get('/api/news', (req, res) => {
     var getAnimeNews = require('./controller');
     getAnimeNews.then(
       results => {
