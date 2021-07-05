@@ -1,5 +1,5 @@
   // Настройки
-  const setup = {port:8000}
+  const setup = {port:81}
   // Подключаем express
   const express = require ('express');
   var expressVue = require("express-vue");
@@ -9,9 +9,6 @@
   app.get('/api/test', (req, res) => {
     res.send('Тест');
   });
-  router.get('/rating', (req, res, next) => {
-    res.renderVue('src/App.vue');
-})
 
   // Слушаем порт и при запуске сервера сообщаем
   app.listen(setup.port, () => {
