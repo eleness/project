@@ -5,14 +5,21 @@
   var expressVue = require("express-vue");
   // создаем приложение
   const app = express ();
-  // Маршрутизируем GET-запрос http://ваш_сайт/test
+
   app.get('/api/test', (req, res) => {
-    res.send('Тест');
+    const { MongoClient } = require('mongodb');
+    const uri = "mongodb+srv://dbUser:<artem2508>@cluster0.ruyoy.mongodb.net/app?retryWrites=true&w=majority";
+    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    client.connect(err => {
+      const collection = client.db("app").collection("abnimes");
+      // perform actions on the collection object
+      client.close();
+      res.send(err);
+});
   });
 
   app.get('/*', (req, res) => res.sendFile('./dist/index.html', { root: __dirname }));
 
-  // Слушаем порт и при запуске сервера сообщаем
   app.listen(setup.port, () => {
     console.log('Сервер: порт %s - старт!', setup.port);
   });
