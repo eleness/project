@@ -6,7 +6,7 @@
   // создаем приложение
   const app = express ();
 
-  app.get('/api', (req, res) => {
+  app.get('/api/news', (req, res) => {
     var getAnimeNews = require('./controller');
     getAnimeNews.then(
       results => {

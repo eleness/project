@@ -44,9 +44,11 @@ created() {
 },
 methods: {
   async getAnimeNews() {
-    this.newsData = [
-      this.$storage.get('news')
-    ]
+      this.$storage.remember('news', async () => {
+        let response = await axios.get("api/news");
+        this.newsData = response.data;
+      })
+
   }
 }
 }
