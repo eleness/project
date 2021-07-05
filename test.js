@@ -1,2 +1,3 @@
 let newsData = require('./controller')
-console.log(newsData());
+var ns = [newsData()];
+console.log(ns.id);

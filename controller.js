@@ -5,7 +5,7 @@
     const url = "mongodb+srv://dbUser:artem2508@cluster0.ruyoy.mongodb.net";
     const mongoClient = new MongoClient(url, { useUnifiedTopology: true });
 
-let newsData = function getAnimeNews(count) {
+var getAnimeNews = new Promise(function (resolve, reject) {
     mongoClient.connect(function(err, client){
         const db = client.db("app");
         const collection = db.collection("animes");
@@ -15,10 +15,11 @@ let newsData = function getAnimeNews(count) {
         }
 
         collection.find().toArray(function(err, results){
+            resolve(results);
             client.close();
-            return results;
         });
     });
-}
+});
 
-module.exports = newsData;
+module.exports = getAnimeNews;
+
