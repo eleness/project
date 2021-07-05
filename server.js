@@ -1,5 +1,5 @@
   // Настройки
-  const setup = {port:81}
+  const setup = {port:8000}
   // Подключаем express
   const express = require ('express');
   var expressVue = require("express-vue");
