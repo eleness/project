@@ -7,8 +7,9 @@
   const app = express ();
 
   app.get('/api/news', (req, res) => {
-    import {getAnimeNews} from "./_database/controller.js"
-    res.send(getAnimeNews());
+    import {getAnimeNews} from "./_database/controller.js";
+    let data = getAnimeNews();
+    res.send(data);
 });
 
   app.get('/*', (req, res) => res.sendFile('./dist/index.html', { root: __dirname }));
