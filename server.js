@@ -16,7 +16,7 @@
 
 });
 
-app.get('/', (req, res) => res.sendFile('./dist/index.html', { root: __dirname }));
+app.get('/*', (req, res) => res.sendFile('./dist/index.html', { root: __dirname }));
 
   app.listen(setup.port, () => {
     console.log('Сервер: порт %s - старт!', setup.port);
