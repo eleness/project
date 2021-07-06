@@ -33,7 +33,7 @@
 
 </template>
 <script>
-
+import axios from "axios";
 export default {
   name: "news",
   data: () => ({
@@ -45,7 +45,8 @@ created() {
 methods: {
   async getAnimeNews() {
       this.$storage.remember('news', async () => {
-        this.newsData
+        let response = await axios.get("api/news/");
+        this.newsData = response.data;
       })
 
   }
